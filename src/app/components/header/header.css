@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+h1 {
+  font-family:
+    'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+    sans-serif;
+}
+
+.buttons-container{
+  display: flex;
+  gap: 8px;
+
+  button {
+    width: 80px;
+  }
+}
