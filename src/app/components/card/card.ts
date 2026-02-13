@@ -11,4 +11,10 @@ import { Modal } from '../modal/modal';
   templateUrl: './card.html',
   styleUrls: ['./card.scss'],
 })
-export class Card {}
+export class Card {
+  editProductModalVisible: boolean = false;
+
+  showEditProductModal() {
+    this.editProductModalVisible = true;
+  }
+}

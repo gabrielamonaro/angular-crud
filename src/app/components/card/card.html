@@ -7,9 +7,18 @@
 
   <ng-template pTemplate="footer">
     <div class="button-container flex gap-3 mt-1">
-      <p-button label="Edit" severity="secondary" class="w-full" styleClass="w-full" />
+      <p-button
+        label="Edit"
+        severity="secondary"
+        class="w-full"
+        styleClass="w-full"
+        (onClick)="showEditProductModal()"
+      />
       <p-button label="Delete" class="w-full" styleClass="w-full" />
-      <app-modal [visible]="false"></app-modal>
+      <app-modal
+        [visible]="editProductModalVisible"
+        (visibleChange)="editProductModalVisible = false"
+      ></app-modal>
     </div>
   </ng-template>
 </p-card>
