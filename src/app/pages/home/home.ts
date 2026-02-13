@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
+import { Card } from '../../components/card/card';
+import { Modal } from '../../components/modal/modal';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [ButtonModule, Card, Modal],
   templateUrl: './home.html',
-  styleUrl: './home.scss',
+  styleUrls: ['./home.scss'],
 })
 export class Home {
+  addProductModalVisible: boolean = false;
 
+  showAddProductModal() {
+    this.addProductModalVisible = true;
+  }
 }

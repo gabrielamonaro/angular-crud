@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="cards-container">
+  <app-card></app-card>
+  <app-card></app-card>
+
+  <app-card></app-card>
+
+  <app-card></app-card>
+
+  <app-card></app-card>
+</div>
+<div class="add-product-container">
+  <p-button label="Add product" severity="info" (onClick)="showAddProductModal()" />
+  <app-modal
+    [visible]="addProductModalVisible"
+    (visibleChange)="addProductModalVisible = $event"
+  ></app-modal>
+</div>

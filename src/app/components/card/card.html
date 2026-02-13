@@ -1,0 +1,15 @@
+<p-card header="Name" [style]="{ width: '360px' }">
+  <ng-template pTemplate="header">
+    <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+  </ng-template>
+  <p>Price: 20</p>
+  <p-rating />
+
+  <ng-template pTemplate="footer">
+    <div class="button-container flex gap-3 mt-1">
+      <p-button label="Edit" severity="secondary" class="w-full" styleClass="w-full" />
+      <p-button label="Delete" class="w-full" styleClass="w-full" />
+      <app-modal [visible]="false"></app-modal>
+    </div>
+  </ng-template>
+</p-card>

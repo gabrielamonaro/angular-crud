@@ -1,0 +1,13 @@
+.add-product-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1.5rem;
+}
+
+.cards-container {
+  margin: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

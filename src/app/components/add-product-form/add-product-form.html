@@ -1,0 +1,21 @@
+<form>
+  <h3>Add Product</h3>
+  <div class="card flex justify-center">
+    <label>Name: </label>
+    <input type="text" pInputText fluid />
+  </div>
+  <div class="card flex justify-center">
+    <label>Price: </label>
+    <input type="text" pInputText fluid />
+  </div>
+  <div class="card flex justify-center">
+    <label>Image: </label>
+    <input type="text" pInputText fluid />
+  </div>
+  <p-rating />
+
+  <div class="">
+    <p-button label="Cancel" severity="secondary" (onClick)="onClose()" />
+    <p-button label="Save" (onClick)="onClose()" />
+  </div>
+</form>
