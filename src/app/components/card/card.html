@@ -14,7 +14,7 @@
         styleClass="w-full"
         (onClick)="showEditProductModal()"
       />
-      <p-button label="Delete" class="w-full" styleClass="w-full" />
+      <p-button label="Delete" class="w-full" styleClass="w-full" (onClick)="showDeleteModal()" />
       <app-modal
         [product]="product"
         [visible]="editProductModalVisible"
@@ -24,4 +24,19 @@
       ></app-modal>
     </div>
   </ng-template>
+
+  <p-dialog
+    header="Delete item"
+    [modal]="true"
+    [(visible)]="deleteModalVisible"
+    [style]="{ width: '25rem' }"
+    (onHide)="closeDeleteModal()"
+  >
+    <p class="delete-message">Are you sure you want delete this item?</p>
+
+    <div class="button-container flex justify-end gap-4">
+      <p-button label="Cancel" severity="secondary" (onClick)="closeDeleteModal()" />
+      <p-button label="Delete" (onClick)="deleteProduct()" />
+    </div>
+  </p-dialog>
 </p-card>
