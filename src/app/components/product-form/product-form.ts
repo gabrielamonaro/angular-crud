@@ -10,4 +10,8 @@ import { RatingModule } from 'primeng/rating';
   styleUrl: './product-form.scss',
   standalone: true,
 })
-export class ProductForm {}
+export class ProductForm {
+  submitForm() {
+    console.log('Form submit chamado!');
+  }
+}

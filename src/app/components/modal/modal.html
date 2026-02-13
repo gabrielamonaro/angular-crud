@@ -5,10 +5,10 @@
   [style]="{ width: '25rem' }"
   (onHide)="onClose()"
 >
-  <app-product-form ></app-product-form>
+  <app-product-form #productForm></app-product-form>
 
   <div class="button-container flex justify-end gap-4">
     <p-button label="Cancel" severity="secondary" (onClick)="onClose()" />
-    <p-button label="Save" (onClick)="onClose()" />
+    <p-button label="Save" (onClick)="save(productForm)" />
   </div>
 </p-dialog>
