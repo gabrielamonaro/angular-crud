@@ -4,11 +4,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RatingModule } from 'primeng/rating';
 
 @Component({
-  selector: 'app-add-product-form',
+  selector: 'app-product-form',
   imports: [InputTextModule, ButtonModule, RatingModule],
-  templateUrl: './add-product-form.html',
-  styleUrl: './add-product-form.scss',
+  templateUrl: './product-form.html',
+  styleUrl: './product-form.scss',
+  standalone: true,
 })
-export class AddProductForm {
-  @Input() onClose!: () => void;
-}
+export class ProductForm {}
