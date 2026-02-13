@@ -15,6 +15,7 @@ export class Api {
   }
 
   createProduct(productData: CreateProduct): Observable<ProductApiReturn> {
+    console.log('Chamou aqui: ', productData);
     return this.http.post<ProductApiReturn>(`${this.BASE_URL}/clothes`, productData);
   }
 

@@ -16,9 +16,11 @@
       />
       <p-button label="Delete" class="w-full" styleClass="w-full" />
       <app-modal
+        [product]="product"
         [visible]="editProductModalVisible"
         (visibleChange)="editProductModalVisible = false"
         title="Edit product"
+        [isEdition]="isEdition"
       ></app-modal>
     </div>
   </ng-template>

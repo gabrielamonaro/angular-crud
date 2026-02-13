@@ -1,7 +1,7 @@
 <div class="cards-container">
   <section>
     @for (product of productsList; track product.id) {
-      <app-card [product]="product"> </app-card>
+      <app-card [product]="product" [isEdition]="true"> </app-card>
     }
   </section>
 </div>

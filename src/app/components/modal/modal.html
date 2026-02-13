@@ -5,7 +5,7 @@
   [style]="{ width: '25rem' }"
   (onHide)="onClose()"
 >
-  <app-product-form #productForm></app-product-form>
+  <app-product-form #productForm [product]="product" [isEdition]="isEdition"></app-product-form>
 
   <div class="button-container flex justify-end gap-4">
     <p-button label="Cancel" severity="secondary" (onClick)="onClose()" />

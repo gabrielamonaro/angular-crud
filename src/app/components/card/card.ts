@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./card.scss'],
 })
 export class Card {
+  @Input() isEdition!: boolean;
   editProductModalVisible: boolean = false;
   @Input() product: Product = {
     id: '',
