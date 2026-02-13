@@ -1,15 +1,15 @@
-<form>
+<form #productForm="ngForm">
   <div class="">
-    <label>Name: </label>
-    <input type="text" pInputText fluid />
+    <label for="name">Name: </label>
+    <input id="name" name="name" type="text" pInputText fluid [(ngModel)]="product.name" />
   </div>
   <div class="">
-    <label>Price: </label>
-    <input type="text" pInputText fluid />
+    <label for="price">Price: </label>
+    <input id="price" name="price" type="text" pInputText fluid [(ngModel)]="product.price" />
   </div>
   <div class="">
-    <label>Image: </label>
-    <input type="text" pInputText fluid />
+    <label for="image">Image: </label>
+    <input id="image" name="image" type="text" pInputText fluid [(ngModel)]="product.image" />
   </div>
-  <div class="rating-container"><p-rating /></div>
+  <div class="rating-container"><p-rating name="rating" [(ngModel)]="product.rating" /></div>
 </form>
