@@ -1,9 +1,9 @@
-<p-card header="Name" [style]="{ width: '360px' }">
+<p-card [header]="product.name" [style]="{ width: '200px', height: '400px' }">
   <ng-template pTemplate="header">
-    <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+    <img alt="Card" [src]="product.image" />
   </ng-template>
-  <p>Price: 20</p>
-  <p-rating />
+  <p>Price: {{ product.price }}</p>
+  <p-rating [(ngModel)]="product.rating" [readonly]="true" />
 
   <ng-template pTemplate="footer">
     <div class="button-container flex gap-3 mt-1">

@@ -1,12 +1,9 @@
 <div class="cards-container">
-  <app-card></app-card>
-  <app-card></app-card>
-
-  <app-card></app-card>
-
-  <app-card></app-card>
-
-  <app-card></app-card>
+  <section>
+    @for (product of productsList; track product.id) {
+      <app-card [product]="product"> </app-card>
+    }
+  </section>
 </div>
 <div class="add-product-container">
   <p-button label="Add product" severity="info" (onClick)="showAddProductModal()" />
