@@ -18,7 +18,7 @@
       />
       <p-button label="Delete" class="w-full" styleClass="w-full" (onClick)="showDeleteModal()" />
       <app-modal
-        [product]="product"
+        [product]="selectedProduct"
         [visible]="editProductModalVisible"
         (visibleChange)="editProductModalVisible = false"
         title="Edit product"

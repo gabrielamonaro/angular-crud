@@ -19,6 +19,15 @@ export class Card {
   @Input() isEdition!: boolean;
   editProductModalVisible: boolean = false;
   deleteModalVisible = false;
+
+  selectedProduct: Product = {
+    id: '',
+    image: '',
+    name: '',
+    price: 0,
+    rating: 0,
+  };
+
   @Input() product: Product = {
     id: '',
     image: '',
@@ -28,6 +37,7 @@ export class Card {
   };
 
   showEditProductModal() {
+    this.selectedProduct = { ...this.product };
     this.editProductModalVisible = true;
   }
 
