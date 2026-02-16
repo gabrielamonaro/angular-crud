@@ -1,7 +1,7 @@
 <div class="cards-container">
   <section>
     @for (product of productsList; track product.id) {
-      <app-card [product]="product" [isEdition]="true"> </app-card>
+      <app-card [product]="product" [isEdition]="true" (saved)="loadProducts()"> </app-card>
     }
   </section>
   <div class="paginator-container card flex justify-center">
@@ -21,5 +21,6 @@
     [visible]="addProductModalVisible"
     (visibleChange)="addProductModalVisible = $event"
     title="Add product"
+    (saved)="loadProducts()"
   ></app-modal>
 </div>

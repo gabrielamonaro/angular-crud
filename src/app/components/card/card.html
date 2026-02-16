@@ -23,6 +23,7 @@
         (visibleChange)="editProductModalVisible = false"
         title="Edit product"
         [isEdition]="isEdition"
+        (saved)="emitSaved()"
       ></app-modal>
     </div>
   </ng-template>

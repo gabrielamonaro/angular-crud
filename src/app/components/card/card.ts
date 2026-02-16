@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Button } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
@@ -19,6 +19,7 @@ export class Card {
   @Input() isEdition!: boolean;
   editProductModalVisible: boolean = false;
   deleteModalVisible = false;
+  @Output() saved = new EventEmitter<void>();
 
   selectedProduct: Product = {
     id: '',
@@ -49,7 +50,11 @@ export class Card {
     this.deleteModalVisible = false;
   }
 
-  deleteProduct() {
-    this.api.deleteProduct(this.product.id).subscribe();
+  emitSaved() {
+    this.saved.emit();
+  }
+
+  async deleteProduct() {
+    await this.api.deleteProduct(this.product.id);
   }
 }

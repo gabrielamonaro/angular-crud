@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class Api {
 
   BASE_URL = 'http://localhost:3000';
 
-  getProducts(params?: ParamsList): Observable<ProductApiReturn> {
+  async getProducts(params?: ParamsList): Promise<ProductApiReturn> {
     let httpParams = new HttpParams();
 
     if (params) {
@@ -21,21 +21,31 @@ export class Api {
         httpParams = httpParams.set('perPage', String(params.perPage));
       }
     }
-    return this.http.get<ProductApiReturn>(`${this.BASE_URL}/clothes`, {
-      params: httpParams,
-    });
+
+    const result = await firstValueFrom(
+      this.http.get<ProductApiReturn>(`${this.BASE_URL}/clothes`, {
+        params: httpParams,
+      }),
+    );
+    return result;
   }
 
-  createProduct(productData: CreateProduct): Observable<ProductApiReturn> {
-    console.log('Chamou aqui: ', productData);
-    return this.http.post<ProductApiReturn>(`${this.BASE_URL}/clothes`, productData);
+  async createProduct(productData: CreateProduct): Promise<ProductApiReturn> {
+    const result = await firstValueFrom(
+      this.http.post<ProductApiReturn>(`${this.BASE_URL}/clothes`, productData),
+    );
+    return result;
   }
 
-  updateProduct({ id, ...rest }: Product): Observable<ProductApiReturn> {
-    return this.http.put<ProductApiReturn>(`${this.BASE_URL}/clothes/${id}`, rest);
+  async updateProduct({ id, ...rest }: Product): Promise<ProductApiReturn> {
+    const result = await firstValueFrom(
+      this.http.put<ProductApiReturn>(`${this.BASE_URL}/clothes/${id}`, rest),
+    );
+    return result;
   }
 
-  deleteProduct(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.BASE_URL}/clothes/${id}`);
+  async deleteProduct(id: string): Promise<void> {
+    const result = await firstValueFrom(this.http.delete<void>(`${this.BASE_URL}/clothes/${id}`));
+    return result;
   }
 }

@@ -33,12 +33,16 @@ export class Home implements OnInit {
     this.addProductModalVisible = true;
   }
 
-  loadProducts() {
-    this.api.getProducts({ page: this.currentPage, perPage: this.rows }).subscribe((data) => {
-      this.productsList = data.items;
+  async loadProducts() {
+    try {
+      const result = await this.api.getProducts({ page: this.currentPage, perPage: this.rows });
+
+      this.productsList = result.items;
       this.cdr.detectChanges();
-      this.totalRecords = data.total;
-    });
+      this.totalRecords = result.total;
+    } catch (error) {
+      console.log('err :', error);
+    }
   }
 
   onPageChange(event: PaginatorState) {

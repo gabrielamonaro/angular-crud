@@ -15,6 +15,8 @@ export class Modal {
   @Input() visible!: boolean;
   @Output() visibleChange = new EventEmitter<boolean>();
 
+  @Output() saved = new EventEmitter<void>();
+
   @Input() product: Product = {
     id: '',
     image: '',
@@ -32,8 +34,13 @@ export class Modal {
     this.visibleChange.emit(false);
   }
 
-  save(form: ProductForm) {
-    form.submitForm();
-    this.onClose();
+  async save(form: ProductForm) {
+    try {
+      await form.submitForm();
+      this.saved.emit();
+      this.onClose();
+    } catch (err) {
+      console.log('err: ', err);
+    }
   }
 }

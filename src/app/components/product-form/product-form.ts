@@ -23,21 +23,19 @@ export class ProductForm {
     rating: 0,
   };
 
-
-
-  submitForm() {
+  async submitForm() {
     if (this.isEdition) {
-      this.updateProduct();
+      await this.updateProduct();
     } else {
-      this.addProduct();
+      await this.addProduct();
     }
   }
 
-  addProduct() {
-    this.api.createProduct(this.product).subscribe((data) => {});
+  async addProduct() {
+    await this.api.createProduct(this.product);
   }
 
-  updateProduct() {
-    this.api.updateProduct({ ...this.product }).subscribe((data) => {});
+  async updateProduct() {
+    await this.api.updateProduct({ ...this.product });
   }
 }
