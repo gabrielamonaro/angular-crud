@@ -4,7 +4,17 @@
       <app-card [product]="product" [isEdition]="true"> </app-card>
     }
   </section>
+  <div class="paginator-container card flex justify-center">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="totalRecords"
+      [rowsPerPageOptions]="[10, 20, 30]"
+    />
+  </div>
 </div>
+
 <div class="add-product-container">
   <p-button label="Add product" severity="info" (onClick)="showAddProductModal()" />
   <app-modal

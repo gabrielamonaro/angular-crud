@@ -4,15 +4,20 @@ import { Card } from '../../components/card/card';
 import { Modal } from '../../components/modal/modal';
 import { Api } from '../../services/api';
 import { CommonModule } from '@angular/common';
+import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule, Card, Modal, CommonModule],
+  imports: [ButtonModule, Card, Modal, CommonModule, PaginatorModule],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })
 export class Home implements OnInit {
+  first: number = 1;
+  rows: number = 10;
+  currentPage: number = 0;
+  totalRecords: number = 0;
   ngOnInit(): void {
     this.loadProducts();
   }
@@ -29,10 +34,17 @@ export class Home implements OnInit {
   }
 
   loadProducts() {
-    this.api.getProducts().subscribe((data) => {
+    this.api.getProducts({ page: this.currentPage, perPage: this.rows }).subscribe((data) => {
       this.productsList = data.items;
       this.cdr.detectChanges();
-      console.log(data.items);
+      this.totalRecords = data.total;
     });
+  }
+
+  onPageChange(event: PaginatorState) {
+    this.first = event.first ?? 0;
+    this.rows = event.rows ?? 10;
+    this.currentPage = event.page ?? 0;
+    this.loadProducts();
   }
 }

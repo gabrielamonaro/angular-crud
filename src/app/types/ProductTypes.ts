@@ -20,3 +20,8 @@ interface CreateProduct {
   price: number;
   rating: number;
 }
+
+interface ParamsList {
+  page: number;
+  perPage: number;
+}

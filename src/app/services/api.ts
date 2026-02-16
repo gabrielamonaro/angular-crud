@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,8 +10,20 @@ export class Api {
 
   BASE_URL = 'http://localhost:3000';
 
-  getProducts(): Observable<ProductApiReturn> {
-    return this.http.get<ProductApiReturn>(`${this.BASE_URL}/clothes`);
+  getProducts(params?: ParamsList): Observable<ProductApiReturn> {
+    let httpParams = new HttpParams();
+
+    if (params) {
+      if (params.page) {
+        httpParams = httpParams.set('page', String(params.page));
+      }
+      if (params.perPage) {
+        httpParams = httpParams.set('perPage', String(params.perPage));
+      }
+    }
+    return this.http.get<ProductApiReturn>(`${this.BASE_URL}/clothes`, {
+      params: httpParams,
+    });
   }
 
   createProduct(productData: CreateProduct): Observable<ProductApiReturn> {
