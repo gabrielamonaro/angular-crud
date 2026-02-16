@@ -1,7 +1,9 @@
-<p-card [header]="product.name" [style]="{ width: '200px', height: '400px' }">
+<p-card [style]="{ maxWidth: '250px', height: '430px' }" class="card">
   <ng-template pTemplate="header">
     <img alt="Card" [src]="product.image" />
   </ng-template>
+  <ng-template #title> {{ product.name }}</ng-template>
+
   <p>Price: {{ product.price }}</p>
   <p-rating [(ngModel)]="product.rating" [readonly]="true" />
 

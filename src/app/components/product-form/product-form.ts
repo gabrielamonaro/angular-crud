@@ -23,6 +23,8 @@ export class ProductForm {
     rating: 0,
   };
 
+
+
   submitForm() {
     if (this.isEdition) {
       this.updateProduct();
